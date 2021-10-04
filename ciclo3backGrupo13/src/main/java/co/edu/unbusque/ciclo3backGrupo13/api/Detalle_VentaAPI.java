@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unbusque.ciclo3backGrupo13.dao.Detalle_VentaDAO;
-import co.edu.unbusque.ciclo3backGrupo13.model.Detalle_Venta;
+import co.edu.unbusque.ciclo3backGrupo13.model.Detalle_Ventas;
 
 @RestController
 @RequestMapping("detalle_venta")
@@ -17,7 +17,7 @@ public class Detalle_VentaAPI {
 	private Detalle_VentaDAO detalle_ventaDao;
 	
 	@PostMapping("/guardar")
-	public void guardar(@RequestBody Detalle_Venta detalle_venta) {
+	public void guardar(@RequestBody Detalle_Ventas detalle_venta) {
 		detalle_ventaDao.save(detalle_venta);
 	}
 
