@@ -1,12 +1,16 @@
 package co.edu.unbusque.ciclo3backGrupo13.api;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unbusque.ciclo3backGrupo13.dao.VentasDAO;
+import co.edu.unbusque.ciclo3backGrupo13.dto.ConsecutivoDTO;
 import co.edu.unbusque.ciclo3backGrupo13.model.Ventas;
 
 @RestController
@@ -19,5 +23,10 @@ public class VentasAPI {
 	@PostMapping("/guardar")
 	public void guardar(@RequestBody Ventas ventas) {
 		ventasDao.save(ventas);
+	}
+	
+	@GetMapping("/buscarSigCod")
+	public Optional<ConsecutivoDTO> buscarNextId() {
+		return ventasDao.obtenerConsecutivo();
 	}
 }
